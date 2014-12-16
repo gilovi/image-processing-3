@@ -1,0 +1,24 @@
+[pyr, filter] = GaussianPyramid(im, maxLevels, filterSize)
+%
+%sub_samp = filterSize-1;
+a = [1 1];
+a = conv2(a,a');
+for i = 1:filterSize-2
+   blur_mask = conv2(blur_mask , a);
+end
+filter = blur_mask(1)
+%normalizing
+blur_mask = blur_mask/sum(blur_mask(:));
+for i=1:maxLevels
+    %managing borders with mirroring
+    pad_im = padarray(im,filterSize-1,'symmetric');
+    blur_im = conv2(im , blur_mask);
+    %cutting the image to original size
+    blur_im = blur_im(filterSize-1 , end-filterSize-1);
+    %subsample
+    sub_im = blur_im(1:2:end,1:2:end) ;
+    pyr{i} = sub_im;
+
+end
+  
+ 
