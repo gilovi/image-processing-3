@@ -21,10 +21,10 @@ function [pyr, filter] = GaussianPyramid(im, maxLevels, filterSize)
             break
         end
         %managing borders with mirroring
-        %%pad_im = padarray(pyr{i-1},[filterSize-1,filterSize-1],'symmetric');
-        blur_im = conv2(pyr{i-1} , blur_mask,'same');
+        %pad_im = padarray(pyr{i-1},[filterSize-1,filterSize-1],'symmetric');
+        blur_im = conv2(pad_im , blur_mask,'same');
         %cutting the image to original size
-        %%blur_im = blur_im(filterSize-1 , end-filterSize-1);
+        blur_im = blur_im(filterSize-1 , end-filterSize-1);
         
         %subsample
         sub_im = blur_im(2:2:end,2:2:end) ;
