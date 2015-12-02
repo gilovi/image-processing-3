@@ -1,12 +1,13 @@
 function [exp_im] = expand(orig_im, factor , filter)
 %expands an image 'orig_im' by factor 'factor'
+i = 1:length(orig_im);
 
-im_size = size(orig_im);
+im_size =  size(orig_im(i));
 filt_len = length(filter)-1;
-blur_mask = conv2(filter,filter')*4;
+blur_mask = arrayfun(@(filt) conv2(filt,filt')*4, filter);
 
-
-exp_im(2: factor :im_size(1)*2 , 2: factor: im_size(2)*2) = orig_im;
+i=1:length(factor);
+exp_im(factor(i): factor(i) :im_size(i,1)*factor(i) , factor(i): factor(i): im_size(i,2)*factor(i)) = orig_im(i);
 %%exp_im = im2double(exp_im);
 %managing borders with mirroring
 pad_im = padarray(exp_im ,[filt_len,filt_len],'symmetric');

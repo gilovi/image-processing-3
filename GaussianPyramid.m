@@ -3,12 +3,7 @@ function [pyr, filter] = GaussianPyramid(im, maxLevels, filterSize)
 %sub_samp = filterSize-1;
 %% prepare blur mask
 
-    a = [1 1];
-    filter = a;
-    for i = 1:filterSize-2
-       filter = conv(filter , a);
-    end
-
+    filter = conv_n_times([1 1],filterSize-1);
     %normalizing
     filter = filter/sum(filter(:));
     
