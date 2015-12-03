@@ -1,0 +1,23 @@
+gilovi
+30060449
+
+matlab version: 2014a
+
+
+Exercise 3: Image Pyramids & Pyramid Blending
+=================================================
+
+submitted files:
+----------------
+
+
+
+
+ANSWERS TO QUESTIONS
+---------------------
+
+3.2 What does it mean to multiply each level in a different value? What do we try to control on?
+multiply certain level means the weight that we would like to give that level . this enables us
+to control the gain each scale of details is getting so for example it would be possible to enhance
+smaller details if larger coefficient is applied to the lower levels, while larger scale details can 
+be enhanced in the opposite manner (i.e give larger coefficient to higher levels).
