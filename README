@@ -21,3 +21,13 @@ multiply certain level means the weight that we would like to give that level . 
 to control the gain each scale of details is getting so for example it would be possible to enhance
 smaller details if larger coefficient is applied to the lower levels, while larger scale details can 
 be enhanced in the opposite manner (i.e give larger coefficient to higher levels).
+
+4.2  
+1. Blending is performed with different image filters (filterSizeIm = 1,3,5,7...):
+ this changes the order of magnitude of details to 'look at' at each level.
+smaller filter would take finer changes. (shouldn't change much if there are enough levels.) 
+
+2. Blending is performed with a varying number of pyramid levels (maxLevels = 1,2,3,4,5,...):
+the more levels we add to the blending the smother the blend will get. this is due to more levels of
+magnitude that are taken into account 
+(each level added would blend better the details that are in the correlating level of magnitude).

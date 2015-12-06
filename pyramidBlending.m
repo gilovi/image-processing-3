@@ -1,5 +1,6 @@
 function imBlend = pyramidBlending(im1, im2, mask, maxLevels, filterSizeIm, filterSizeMask)
 %
+maxLevels = floor(min(maxLevels, log2(min(size(im1))) - 3));
 mask = im2double(mask);
 
 [L1,filt] = LaplacianPyramid(im1,maxLevels, filterSizeIm);

@@ -1,6 +1,6 @@
 function displayPyramid(pyr,levels)
     
-    imshow(renderPyramid(pyr,levels));
+    figure;imshow(renderPyramid(pyr,levels));
 
 end
 

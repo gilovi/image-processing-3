@@ -17,5 +17,6 @@ function [pyr, filter] = GaussianPyramid(im, maxLevels, filterSize)
         end
          pyr{i} = reduce(pyr{i-1} , 2 , filter);
     end
-
+    pyr = pyr';
 end
+
